@@ -57,9 +57,7 @@ class RootViewController: UIViewController {
                     interfaceOrientationMask = interfaceOrientationMask.union(.portrait)
                     interfaceOrientationMask = interfaceOrientationMask.union(.portraitUpsideDown)
                 }
-                device.windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: interfaceOrientationMask)) { _ in
-                    
-                }
+                device.windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: interfaceOrientationMask)) { _ in }
             }
         }
         
@@ -67,7 +65,6 @@ class RootViewController: UIViewController {
         if let view = viewController.view {
             containerView.addSubview(view)
             if fixedOrientation {
-                
                 var width = device.widthPortrait
                 var height = device.heightPortrait
                 switch toOrientation {
@@ -78,7 +75,6 @@ class RootViewController: UIViewController {
                     width = device.widthPortrait
                     height = device.heightPortrait
                 }
-                
                 containerView.addConstraints([
                     view.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
                     view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
@@ -183,18 +179,9 @@ class RootViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        
-        func printMask(_ name: String, _ mask: UIInterfaceOrientationMask) {
-            print("SUPPORTED ORIENTATIONS \(name) \(mask)")
-        }
-        
         if let viewController = viewController {
-            printMask("\(viewController.nibName ?? "VC")", viewController.supportedInterfaceOrientations)
             return viewController.supportedInterfaceOrientations
         }
-        
-        let result: UIInterfaceOrientationMask =  [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
-        printMask("ROOT", result)
-        return result
+        return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
     }
 }

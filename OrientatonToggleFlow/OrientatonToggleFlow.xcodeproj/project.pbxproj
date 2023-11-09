@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E889A7B32AFC4C2B00CB5CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889A7B22AFC4C2B00CB5CC1 /* AppDelegate.swift */; };
 		E889A7B52AFC4C2B00CB5CC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889A7B42AFC4C2B00CB5CC1 /* SceneDelegate.swift */; };
-		E889A7BA2AFC4C2B00CB5CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E889A7B82AFC4C2B00CB5CC1 /* Main.storyboard */; };
 		E889A7BC2AFC4C2B00CB5CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E889A7BB2AFC4C2B00CB5CC1 /* Assets.xcassets */; };
 		E889A7BF2AFC4C2B00CB5CC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E889A7BD2AFC4C2B00CB5CC1 /* LaunchScreen.storyboard */; };
 		E889A7C92AFC4F7B00CB5CC1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889A7C82AFC4F7B00CB5CC1 /* Device.swift */; };
@@ -36,7 +35,6 @@
 		E889A7AF2AFC4C2B00CB5CC1 /* OrientatonToggleFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrientatonToggleFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E889A7B22AFC4C2B00CB5CC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E889A7B42AFC4C2B00CB5CC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E889A7B92AFC4C2B00CB5CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E889A7BB2AFC4C2B00CB5CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E889A7BE2AFC4C2B00CB5CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E889A7C02AFC4C2B00CB5CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				E889A7F02AFC643900CB5CC1 /* [Reusable Interface] */,
 				E889A7B22AFC4C2B00CB5CC1 /* AppDelegate.swift */,
 				E889A7B42AFC4C2B00CB5CC1 /* SceneDelegate.swift */,
-				E889A7B82AFC4C2B00CB5CC1 /* Main.storyboard */,
 				E889A7BB2AFC4C2B00CB5CC1 /* Assets.xcassets */,
 				E889A7BD2AFC4C2B00CB5CC1 /* LaunchScreen.storyboard */,
 				E889A7C02AFC4C2B00CB5CC1 /* Info.plist */,
@@ -212,7 +209,6 @@
 				E889A7BF2AFC4C2B00CB5CC1 /* LaunchScreen.storyboard in Resources */,
 				E889A7EB2AFC5C3800CB5CC1 /* RootViewController.xib in Resources */,
 				E889A7BC2AFC4C2B00CB5CC1 /* Assets.xcassets in Resources */,
-				E889A7BA2AFC4C2B00CB5CC1 /* Main.storyboard in Resources */,
 				E889A7FF2AFC643900CB5CC1 /* ReusableViewController.xib in Resources */,
 				E889A8032AFC643900CB5CC1 /* LandscapeViewController.xib in Resources */,
 				E889A8072AFC643900CB5CC1 /* PortraitViewController.xib in Resources */,
@@ -247,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E889A7B82AFC4C2B00CB5CC1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E889A7B92AFC4C2B00CB5CC1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E889A7BD2AFC4C2B00CB5CC1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -397,7 +385,6 @@
 				INFOPLIST_FILE = OrientatonToggleFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -429,7 +416,6 @@
 				INFOPLIST_FILE = OrientatonToggleFlow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

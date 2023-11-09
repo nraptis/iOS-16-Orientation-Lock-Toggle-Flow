@@ -8,10 +8,8 @@
 import UIKit
 
 final class RootViewModel {
-    
     let applicationController: ApplicationController
     var orientation: Orientation
-    
     init(applicationController: ApplicationController, orientation: Orientation) {
         self.applicationController = applicationController
         self.orientation = orientation
@@ -24,7 +22,6 @@ final class RootViewModel {
         let portraitViewController = PortraitViewController(portraitViewModel: portraitViewModel)
         let fromOrientation = Orientation(interfaceOrientation: device.windowScene.interfaceOrientation)
         let toOrientation = Orientation.portrait
-        
         print("Pushing Portrait Only, From: \(device.windowScene.interfaceOrientation)")
         print("Pushing Portrait Only, To: \(toOrientation)")
         ApplicationController.rootViewController.push(viewController: portraitViewController,
@@ -40,7 +37,6 @@ final class RootViewModel {
         let landscapeViewController = LandscapeViewController(landscapeViewModel: landscapeViewModel)
         let fromOrientation = Orientation(interfaceOrientation: device.windowScene.interfaceOrientation)
         let toOrientation = Orientation.landscape
-        
         print("Pushing Portrait Only, From: \(device.windowScene.interfaceOrientation)")
         print("Pushing Portrait Only, To: \(toOrientation)")
         ApplicationController.rootViewController.push(viewController: landscapeViewController,
@@ -56,7 +52,6 @@ final class RootViewModel {
         let landscapeAndPortraitViewController = LandscapeAndPortraitViewController(landscapeAndPortraitViewModel: landscapeAndPortraitViewModel)
         let fromOrientation = Orientation(interfaceOrientation: device.windowScene.interfaceOrientation)
         let toOrientation = Orientation(interfaceOrientation: device.windowScene.interfaceOrientation)
-        
         print("Pushing BOTH, From: \(device.windowScene.interfaceOrientation)")
         print("Pushing BOTH, To: \(device.windowScene.interfaceOrientation) | \(toOrientation)")
         ApplicationController.rootViewController.push(viewController: landscapeAndPortraitViewController,

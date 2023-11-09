@@ -14,7 +14,6 @@ class LandscapeAndPortraitViewController: UIViewController {
         self.landscapeAndPortraitViewModel = landscapeAndPortraitViewModel
         super.init(nibName: "LandscapeAndPortraitViewController", bundle: .main)
         view.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     required init?(coder: NSCoder) {

@@ -14,10 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         guard let window = window else { return }
         let orientation = Orientation(interfaceOrientation: windowScene.interfaceOrientation)
-        let device = Device(window: window, windowScene: windowScene)
+        let device = Device()
         let applicationController = ApplicationController(device: device)
         ApplicationController.rootViewModel = RootViewModel(applicationController: applicationController,
-                                                            orientation: orientation)
+                                                            orientation: orientation,
+                                                            window: window,
+                                                            windowScene: windowScene)
         ApplicationController.rootViewController = RootViewController(rootViewModel: ApplicationController.rootViewModel)
         let landscapeAndPortraitViewModel = LandscapeAndPortraitViewModel(rootViewModel: ApplicationController.rootViewModel)
         let landscapeAndPortraitViewController = LandscapeAndPortraitViewController(landscapeAndPortraitViewModel: landscapeAndPortraitViewModel)

@@ -47,20 +47,6 @@ class RootViewController: UIViewController {
               animated: Bool,
               reversed: Bool) {
         
-        if fromOrientation.isLandscape != toOrientation.isLandscape {
-            if fixedOrientation {
-                var interfaceOrientationMask = UIInterfaceOrientationMask(rawValue: 0)
-                if toOrientation.isLandscape {
-                    interfaceOrientationMask = interfaceOrientationMask.union(.landscapeLeft)
-                    interfaceOrientationMask = interfaceOrientationMask.union(.landscapeRight)
-                } else {
-                    interfaceOrientationMask = interfaceOrientationMask.union(.portrait)
-                    interfaceOrientationMask = interfaceOrientationMask.union(.portraitUpsideDown)
-                }
-                device.windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: interfaceOrientationMask)) { _ in }
-            }
-        }
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         if let view = viewController.view {
             containerView.addSubview(view)
@@ -106,6 +92,23 @@ class RootViewController: UIViewController {
         
         setNeedsUpdateOfSupportedInterfaceOrientations()
         
+        if fromOrientation.isLandscape != toOrientation.isLandscape {
+            if fixedOrientation {
+                var interfaceOrientationMask = UIInterfaceOrientationMask(rawValue: 0)
+                if toOrientation.isLandscape {
+                    interfaceOrientationMask = interfaceOrientationMask.union(.landscapeLeft)
+                    interfaceOrientationMask = interfaceOrientationMask.union(.landscapeRight)
+                } else {
+                    interfaceOrientationMask = interfaceOrientationMask.union(.portrait)
+                    interfaceOrientationMask = interfaceOrientationMask.union(.portraitUpsideDown)
+                }
+                rootViewModel.windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: interfaceOrientationMask)) { error in
+                    print("Request Geometry Update Error!")
+                    print("\(error.localizedDescription)")
+                }
+            }
+        }
+        
         if !animated {
             if let previousViewController = previousViewController {
                 previousViewController.view.removeFromSuperview()
@@ -141,7 +144,12 @@ class RootViewController: UIViewController {
                 
             } else {
                 // Animate in from the bottom / top, using max dimension...
-                let amount = max(device.widthPortrait, device.heightPortrait)
+                
+                let maxDimension = max(device.widthPortrait, device.heightPortrait)
+                //let minDimension = min(device.widthPortrait, device.heightPortrait)
+                
+                let amount = maxDimension
+                
                 if reversed {
                     previousEndOffsetY = CGFloat(amount)
                     currentStartOffsetY = CGFloat(-amount)

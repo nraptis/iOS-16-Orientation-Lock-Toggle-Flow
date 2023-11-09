@@ -9,17 +9,20 @@ import UIKit
 
 class Device {
     
-    let window: UIWindow
-    let windowScene: UIWindowScene
-    
     let widthPortrait: Float
     let heightPortrait: Float
     let widthLandscape: Float
     let heightLandscape: Float
     
-    init(window: UIWindow, windowScene: UIWindowScene) {
-        self.window = window
-        self.windowScene = windowScene
+    var isPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    var isPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
+    
+    init() {
         
         let _screenWidth = Float(Int(UIScreen.main.bounds.size.width + 0.5))
         let _screenHeight = Float(Int(UIScreen.main.bounds.size.height + 0.5))

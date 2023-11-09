@@ -17,7 +17,6 @@ class RootViewController: UIViewController {
     
     let rootViewModel: RootViewModel
     required init(rootViewModel: RootViewModel) {
-        print("RootViewController => Created")
         self.rootViewModel = rootViewModel
         super.init(nibName: "RootViewController", bundle: .main)
         view.addSubview(containerView)
@@ -38,10 +37,6 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    deinit {
-        print("RootViewController => Destroyed")
     }
     
     private var viewController: UIViewController?
@@ -105,13 +100,20 @@ class RootViewController: UIViewController {
         
         let previousViewController = self.viewController
         self.viewController = viewController
+        
+        //
+        //If the supported interface orientations changes, this may cause an unwanted
+        //rotation. However, it is best to always reload the supported orientations.
+        //If we do not always do this, we will lose rotate-ability when switching
+        //from locked orientation into a switch-able orientation.
+        //
+        
         setNeedsUpdateOfSupportedInterfaceOrientations()
         
         if !animated {
             if let previousViewController = previousViewController {
                 previousViewController.view.removeFromSuperview()
             }
-            
         } else {
             guard let previousViewController = previousViewController else {
                 if let previousViewController = previousViewController {
@@ -181,9 +183,18 @@ class RootViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        
+        func printMask(_ name: String, _ mask: UIInterfaceOrientationMask) {
+            print("SUPPORTED ORIENTATIONS \(name) \(mask)")
+        }
+        
         if let viewController = viewController {
+            printMask("\(viewController.nibName ?? "VC")", viewController.supportedInterfaceOrientations)
             return viewController.supportedInterfaceOrientations
         }
-        return [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
+        
+        let result: UIInterfaceOrientationMask =  [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight]
+        printMask("ROOT", result)
+        return result
     }
 }

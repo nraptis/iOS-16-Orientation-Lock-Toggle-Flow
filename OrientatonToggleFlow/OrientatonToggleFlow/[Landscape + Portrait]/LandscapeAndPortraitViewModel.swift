@@ -8,15 +8,8 @@
 import Foundation
 
 final class LandscapeAndPortraitViewModel {
-    
     let rootViewModel: RootViewModel
     init(rootViewModel: RootViewModel) {
-        print("LandscapeAndPortraitViewModel => Created")
         self.rootViewModel = rootViewModel
     }
-    
-    deinit {
-        print("LandscapeAndPortraitViewModel => Destroyed")
-    }
-    
 }

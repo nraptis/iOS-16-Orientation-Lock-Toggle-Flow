@@ -9,7 +9,6 @@ import UIKit
 
 class ReusableViewController: UIViewController {
     
-    
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var containerPaddedContentView: UIView!

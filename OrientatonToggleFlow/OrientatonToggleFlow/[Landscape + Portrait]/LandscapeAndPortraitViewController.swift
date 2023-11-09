@@ -11,15 +11,10 @@ class LandscapeAndPortraitViewController: UIViewController {
     
     let landscapeAndPortraitViewModel: LandscapeAndPortraitViewModel
     required init(landscapeAndPortraitViewModel: LandscapeAndPortraitViewModel) {
-        print("LandscapeAndPortraitViewController => Created")
         self.landscapeAndPortraitViewModel = landscapeAndPortraitViewModel
         super.init(nibName: "LandscapeAndPortraitViewController", bundle: .main)
         view.translatesAutoresizingMaskIntoConstraints = false
         
-    }
-    
-    deinit {
-        print("LandscapeAndPortraitViewController => Destroyed")
     }
     
     required init?(coder: NSCoder) {

@@ -11,14 +11,9 @@ class PortraitViewController: UIViewController {
     
     let portraitViewModel: PortraitViewModel
     required init(portraitViewModel: PortraitViewModel) {
-        print("PortraitViewController => Created")
         self.portraitViewModel = portraitViewModel
         super.init(nibName: "PortraitViewController", bundle: .main)
         view.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    deinit {
-        print("PortraitViewController => Destroyed")
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +24,6 @@ class PortraitViewController: UIViewController {
     var reusableViewController: ReusableViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reusableViewModel = ReusableViewModel(rootViewModel: portraitViewModel.rootViewModel)
         reusableViewController = ReusableViewController(reusableViewModel: reusableViewModel)
         if let reusableView = reusableViewController.view, let view = self.view {
@@ -43,7 +37,6 @@ class PortraitViewController: UIViewController {
             ])
             view.layoutIfNeeded()
         }
-        
         reusableViewController.labelTitle.text = "Portrait Only"
         reusableViewController.labelOrientationStyle.text = "Fixed Orientation"
     }

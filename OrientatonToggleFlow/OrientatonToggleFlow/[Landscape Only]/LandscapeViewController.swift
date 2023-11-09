@@ -11,15 +11,10 @@ class LandscapeViewController: UIViewController {
     
     let landscapeViewModel: LandscapeViewModel
     required init(landscapeViewModel: LandscapeViewModel) {
-        print("LandscapeViewController => Created")
         self.landscapeViewModel = landscapeViewModel
         super.init(nibName: "LandscapeViewController", bundle: .main)
         view.translatesAutoresizingMaskIntoConstraints = false
         
-    }
-    
-    deinit {
-        print("LandscapeViewController => Destroyed")
     }
     
     required init?(coder: NSCoder) {

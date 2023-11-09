@@ -8,7 +8,6 @@
 import Foundation
 
 final class ReusableViewModel {
-    
     let rootViewModel: RootViewModel
     init(rootViewModel: RootViewModel) {
         self.rootViewModel = rootViewModel
